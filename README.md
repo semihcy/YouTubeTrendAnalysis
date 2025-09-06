@@ -1,24 +1,56 @@
-# 👋 Merhaba, ben Semih ÇAY
+# YouTube Trend Analysis
 
-YouTube veri analizi ve makine öğrenmesi odaklı projeler üzerinde çalışıyorum.  
-Özellikle **trend dinamikleri, görsel ve metinsel analizler** ile içerik başarı tahmini üzerine yoğunlaşıyorum.
+Bu proje, YouTube videolarının trend performansını etkileyen faktörleri incelemeyi amaçlamaktadır. Özellikle, videoların **thumbnail görselleri**, **başlıkları** ve **kanal istatistiklerinin** trend sıralamasına etkisi makine öğrenmesi teknikleriyle analiz edilmiştir.
 
 ---
 
-## 📌 Öne Çıkan Proje
+## 🚀 Projenin Amacı
+YouTube'da yüksek görünürlük ve başarı için kritik olan trend performansının, kullanıcıların içerikle ilk temas noktası olan görsel ve metinsel unsurlardan nasıl etkilendiğini anlamak.
 
-### YouTube Trend Analysis
-Bu proje, YouTube videolarının trend performansını etkileyen faktörleri inceler:
-- **Thumbnail görselleri** → Vision Transformer (ViT) ile çıkarıldı  
-- **Başlık metinleri** → BERT ile anlamsal analiz  
-- **Kanal istatistikleri** → Toplam izlenme, abone sayısı, toplam video sayısı  
+---
 
-**Model:** XGBoost (Optimized)  
-**Performans:**  
-- Accuracy: %82.8  
-- ROC AUC: %87.1  
+## 📊 Kullanılan Veri Seti
 
-[Projeyi incele →](https://github.com/semihcy/YouTubeTrendAnalysis)
+- **Video meta verileri:** Başlangıç ve bitiş pozisyonları, yayın tarihi, kategori ve kanal bilgileri.  
+- **Zaman serisi istatistikleri:** Video sıralama değişimleri, trend süresi, zirve pozisyonu.  
+- **Görseller:** Videoların thumbnail görselleri.  
+- **Metin:** Video başlıklarından çıkarılan anlamsal özellikler.  
+- **Kanal bilgileri:** Kanalın toplam görüntüleme sayısı, abone sayısı, toplam video sayısı.  
+
+Tüm veriler **YouTube Data API v3** ve **SQLite veritabanları** üzerinden elde edilmiştir.
+
+---
+
+## 🧠 Kullanılan Yöntemler
+
+- **Görsel Özellikler:** Vision Transformer (ViT) ile thumbnail görsellerinden çıkarılmıştır.  
+- **Metin Özellikleri:** Çok dilli BERT modeli ile video başlıklarından çıkarılmıştır.  
+- **Boyut İndirgeme ve Kümeleme:** PCA ve K-Means kullanılarak görsel thumbnail kümeleri oluşturulmuştur.  
+- **Makine Öğrenmesi:** XGBoost sınıflandırma modeli ile videoların belirli bir zirve popülerlik eşiğine (örneğin ilk 10 sıra) ulaşıp ulaşmadığı tahmin edilmiştir.  
+- **Hiperparametre Optimizasyonu:** GridSearchCV kullanılmıştır.
+
+---
+
+## 📈 Sonuçlar
+
+Optimize edilmiş XGBoost modeli, test verisinde:  
+
+- **Doğruluk:** %82.8  
+- **ROC AUC:** %87.1  
+
+Analiz, özellikle **video başlığı** ve **kanal istatistiklerinin**, trend performansını tahmin etmede güçlü belirleyiciler olduğunu göstermiştir.
+
+---
+
+## 🔑 Anahtar Kelimeler
+
+YouTube, Trend Analizi, Makine Öğrenmesi, XGBoost, Vision Transformer (ViT), BERT, Çok Modlu Analiz
+
+---
+
+## 💡 Katkılar
+
+Bu çalışma, thumbnail ve başlık gibi kolayca manipüle edilebilir sunum öğelerinin trend başarısı üzerindeki potansiyel etkisini **nicel olarak ortaya koymaktadır**. İçerik üreticiler ve veri analistleri için **YouTube içerik dinamiklerini anlamada değerli içgörüler** sağlamaktadır.
 
 ---
 
