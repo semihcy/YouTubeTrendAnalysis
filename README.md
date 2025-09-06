@@ -68,7 +68,7 @@ Bu çalışma, thumbnail ve başlık gibi kolayca manipüle edilebilir sunum ö�
 
 ## 📫 İletişim
 - Email: 52semih42@gmail.com  
-- LinkedIn: [Semih ÇAY](https://www.linkedin.com/in/semihcay/](https://www.linkedin.com/in/semih-%C3%A7ay-628945200/)  
+- LinkedIn: [Semih ÇAY](https://www.linkedin.com/in/semih-%C3%A7ay-628945200/)
 
 ---
 
