@@ -1,0 +1,19 @@
+YouTubeDatas/video_trend_graphs/
+YouTubeDatas/thumbnails_tr/
+YouTubeDatas/SOA-2024-13927.zip
+# Raw data
+*.zip
+*.db
+*.csv
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Jupyter notebooks checkpoints
+.ipynb_checkpoints/
+
+# PyCharm
+.idea/
+*.npy
+*.pkl
