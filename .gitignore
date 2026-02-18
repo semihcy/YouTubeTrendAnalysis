@@ -1,6 +1,13 @@
 YouTubeDatas/video_trend_graphs/
 YouTubeDatas/thumbnails_tr/
 YouTubeDatas/SOA-2024-13927.zip
+
+*.pem
+*.key
+id_rsa
+id_rsa.pub
+.ssh/
+
 # Raw data
 *.zip
 *.db
