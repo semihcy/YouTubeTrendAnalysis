@@ -103,6 +103,6 @@ These insights may help **content creators, analysts, and digital strategists** 
 
 ## 📫 Contact
 
-- Email: 52semih42@gmail.com  
+- Email: ssemihcay@gmail.com  
 - LinkedIn:  
   https://www.linkedin.com/in/semih-%C3%A7ay-628945200/
