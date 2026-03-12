@@ -1,75 +1,108 @@
 # YouTube Trend Analysis
 
-Bu proje, YouTube videolarının trend performansını etkileyen faktörleri incelemeyi amaçlamaktadır. Özellikle, videoların **thumbnail görselleri**, **başlıkları** ve **kanal istatistiklerinin** trend sıralamasına etkisi makine öğrenmesi teknikleriyle analiz edilmiştir.
+This project analyzes the factors influencing the trending performance of YouTube videos using machine learning techniques.  
+The study focuses on how **thumbnail images**, **video titles**, and **channel statistics** affect a video's ability to reach high positions in YouTube trending rankings.
+
+The project applies a **multimodal machine learning approach**, combining visual and textual features with video metadata to predict trend success.
 
 ---
 
-## 🚀 Projenin Amacı
-YouTube'da yüksek görünürlük ve başarı için kritik olan trend performansının, kullanıcıların içerikle ilk temas noktası olan görsel ve metinsel unsurlardan nasıl etkilendiğini anlamak.
+## 🚀 Project Objective
+
+The goal of this project is to understand how presentation elements such as **thumbnails and titles**, which are the first interaction points for viewers, influence the visibility and success of YouTube videos.
+
+By analyzing these factors, the project aims to provide **data-driven insights into content performance dynamics on YouTube**.
 
 ---
 
-## 📊 Kullanılan Veri Seti
+## 📊 Dataset
 
-- **Video meta verileri:** Başlangıç ve bitiş pozisyonları, yayın tarihi, kategori ve kanal bilgileri.  
-- **Zaman serisi istatistikleri:** Video sıralama değişimleri, trend süresi, zirve pozisyonu.  
-- **Görseller:** Videoların thumbnail görselleri.  
-- **Metin:** Video başlıklarından çıkarılan anlamsal özellikler.  
-- **Kanal bilgileri:** Kanalın toplam görüntüleme sayısı, abone sayısı, toplam video sayısı.  
+The dataset was collected using the **YouTube Data API v3** and stored in **SQLite databases**.
 
-Tüm veriler **YouTube Data API v3** ve **SQLite veritabanları** üzerinden elde edilmiştir.
+It includes multiple data sources:
 
----
+### Video Metadata
+- Initial and final trending positions
+- Publish date
+- Category information
+- Channel identifiers
 
-## 🧠 Kullanılan Yöntemler
+### Time-Series Statistics
+- Rank change over time
+- Trending duration
+- Peak ranking position
 
-- **Görsel Özellikler:** Vision Transformer (ViT) ile thumbnail görsellerinden çıkarılmıştır.  
-- **Metin Özellikleri:** Çok dilli BERT modeli ile video başlıklarından çıkarılmıştır.  
-- **Boyut İndirgeme ve Kümeleme:** PCA ve K-Means kullanılarak görsel thumbnail kümeleri oluşturulmuştur.  
-- **Makine Öğrenmesi:** XGBoost sınıflandırma modeli ile videoların belirli bir zirve popülerlik eşiğine (örneğin ilk 10 sıra) ulaşıp ulaşmadığı tahmin edilmiştir.  
-- **Hiperparametre Optimizasyonu:** GridSearchCV kullanılmıştır.
+### Visual Data
+- Video thumbnail images
 
----
+### Text Data
+- Semantic features extracted from video titles
 
-## 📈 Sonuçlar
-
-Optimize edilmiş XGBoost modeli, test verisinde:  
-
-- **Doğruluk:** %82.8  
-- **ROC AUC:** %87.1  
-
-Analiz, özellikle **video başlığı** ve **kanal istatistiklerinin**, trend performansını tahmin etmede güçlü belirleyiciler olduğunu göstermiştir.
+### Channel Statistics
+- Total views
+- Subscriber count
+- Total number of uploaded videos
 
 ---
 
-## 🔑 Anahtar Kelimeler
+## 🧠 Methodology
 
-YouTube, Trend Analizi, Makine Öğrenmesi, XGBoost, Vision Transformer (ViT), BERT, Çok Modlu Analiz
+Several machine learning and data analysis techniques were applied:
 
----
+### Visual Feature Extraction
+Thumbnail images were processed using a **Vision Transformer (ViT)** model to extract high-level visual representations.
 
-## 💡 Katkılar
+### Text Feature Extraction
+Video titles were encoded using a **multilingual BERT model** to capture semantic meaning.
 
-Bu çalışma, thumbnail ve başlık gibi kolayca manipüle edilebilir sunum öğelerinin trend başarısı üzerindeki potansiyel etkisini **nicel olarak ortaya koymaktadır**. İçerik üreticiler ve veri analistleri için **YouTube içerik dinamiklerini anlamada değerli içgörüler** sağlamaktadır.
+### Dimensionality Reduction & Clustering
+- **PCA** was applied to reduce feature dimensionality  
+- **K-Means clustering** was used to group thumbnail styles
 
----
+### Predictive Modeling
+An **XGBoost classification model** was trained to predict whether a video would reach a high popularity threshold (e.g., **Top 10 trending position**).
 
-## 🛠 Kullanılan Teknolojiler
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
-![XGBoost](https://img.shields.io/badge/XGBoost-FF9900?style=flat)
-![BERT](https://img.shields.io/badge/BERT-2CA5E0?style=flat)
-![Vision Transformer](https://img.shields.io/badge/ViT-6C63FF?style=flat)
-![Pandas](https://img.shields.io/badge/Pandas-150458?style=flat&logo=pandas&logoColor=white)
-![Scikit-learn](https://img.shields.io/badge/Scikit--learn-F7931E?style=flat&logo=scikitlearn&logoColor=white)
-![Matplotlib](https://img.shields.io/badge/Matplotlib-11557C?style=flat&logo=matplotlib&logoColor=white)
-![Seaborn](https://img.shields.io/badge/Seaborn-77AADD?style=flat)
+### Hyperparameter Optimization
+Model performance was improved using **GridSearchCV**.
 
 ---
 
-## 📫 İletişim
+## 📈 Results
+
+The optimized **XGBoost model** achieved the following performance on the test dataset:
+
+- **Accuracy:** 82.8%  
+- **ROC AUC:** 87.1%
+
+The analysis shows that **video titles and channel-level statistics are strong predictors of trending performance**, while thumbnail patterns also contribute to predictive signals.
+
+---
+
+## 🔑 Key Contributions
+
+- Demonstrates a **multimodal machine learning approach** combining visual, textual, and metadata features.
+- Provides a **data-driven framework for analyzing YouTube trending dynamics**.
+- Highlights how **content presentation elements** (thumbnails and titles) influence performance.
+
+These insights may help **content creators, analysts, and digital strategists** better understand the mechanisms behind trending videos.
+
+---
+
+## 🛠 Technologies Used
+
+- Python  
+- XGBoost  
+- Vision Transformer (ViT)  
+- BERT (Multilingual)  
+- Pandas  
+- Scikit-learn  
+- Matplotlib  
+- Seaborn  
+
+---
+
+## 📫 Contact
+
 - Email: 52semih42@gmail.com  
-- LinkedIn: [Semih ÇAY](https://www.linkedin.com/in/semih-%C3%A7ay-628945200/)
-
----
-
-> “Veri sadece sayılar değildir, doğru analiz edildiğinde hikaye anlatır.”  
+- LinkedIn:  
+  https://www.linkedin.com/in/semih-%C3%A7ay-628945200/
